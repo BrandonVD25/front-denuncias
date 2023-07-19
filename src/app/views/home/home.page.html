@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="toolbar" >
+      <ion-title>Portal de denuncias coppel</ion-title>
+      <ion-buttons slot="end">
+        <ion-button routerLink="/login-admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Log in Admin
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="texto-container">
+  <div class="texto">
+    <p>Estimado cliente,</p>
+    <p>Mediante esta página, podrás realizar denuncias de manera segura y confidencial.</p>
+    <p>Nos tomamos en serio todas las denuncias recibidas y las tratamos con la máxima confidencialidad.</p>
+    <div class="button-container">
+      <ion-button class="button" routerLink="/form-denuncia" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Captura de denuncia</ion-button>
+      <ion-button class="button" routerLink="/login-denuncia" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Seguimiento de denuncia</ion-button>
+    </div>
+  </div>
+</div>
+</ion-content>

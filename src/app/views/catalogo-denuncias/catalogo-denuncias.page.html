@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar class="toolbar" >
+      <ion-title>Portal de denuncias coppel</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="salir()" >
+          Salir
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <table class="denuncias-table">
+    <thead>
+      <tr>
+        <th colspan="8">Denuncias</th>
+      </tr>
+      <tr>
+        <th>Folio</th>
+        <th>Nombre empresa</th>
+        <th>País</th>
+        <th>Estado</th>
+        <th>NC</th>
+        <th>Fecha</th>
+        <th>Estatus</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let denuncia of denuncias">
+        <td>{{ denuncia.folio }}</td>
+        <td>{{ denuncia.empresaName }}</td>
+        <td>{{ denuncia.paisName }}</td>
+        <td>{{ denuncia.estadoName }}</td>
+        <td>{{ denuncia.centro }}</td>
+        <td>{{ denuncia.fecha }}</td>
+        <td>{{ denuncia.estatusInfo }}</td>
+        <td>
+          <ion-icon name="create" (click)="redirectTo(denuncia.folio)"></ion-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

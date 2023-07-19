@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="toolbar" >
+      <ion-title>Portal de denuncias coppel</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="salir()" >
+          Salir
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let denuncia of denuncias">
+      <ion-label><strong>Folio:</strong> {{ denuncia.folio }}</ion-label>
+      <ion-label><strong>Estatus:</strong> {{ denuncia.estatusInfo }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item *ngFor="let denuncia of denuncias">
+    <ion-label><strong>Detalle:</strong>{{denuncia.detalle}}</ion-label>
+  </ion-item>
+
+  <table class="comentarios-table">
+    <thead>
+      <tr>
+        <th colspan="2">Historial de comentarios</th>
+      </tr>
+      <tr>
+        <th>Fecha</th>
+        <th>Comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comentario of comentarios">
+        <td>{{ comentario.fecha }}</td>
+        <td>{{ comentario.comentario }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

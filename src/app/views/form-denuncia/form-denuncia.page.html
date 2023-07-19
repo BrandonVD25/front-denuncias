@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar class="toolbar" >
+      <ion-title>Registrar Denuncia</ion-title>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/']" routerLinkActive="router-link-active" >
+          Salir
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="formulario">
+    <ion-list>
+      <ion-item>
+        <ion-label>Empresa:</ion-label>
+        <ion-select formControlName="empresaSeleccionada">
+          <ion-select-option value="1">Coppel</ion-select-option>
+          <ion-select-option value="2">Bancoppel</ion-select-option>
+          <ion-select-option value="3">Afore Coppel</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>País:</ion-label>
+        <ion-select formControlName="paisSeleccionado" >
+          <ion-select-option value="mexico">México</ion-select-option>
+          <ion-select-option value="estadosunidos">Estados Unidos</ion-select-option>
+          <ion-select-option value="argentina">Argentina</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('paisSeleccionado')?.value === 'mexico'">
+        <ion-label>Estado:</ion-label>
+        <ion-select formControlName="estadoSeleccionado">
+          <ion-select-option value="3">Aguascalientes</ion-select-option>
+          <ion-select-option value="4">Campeche</ion-select-option>
+          <ion-select-option value="5">CDMX</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('paisSeleccionado')?.value === 'estadosunidos'">
+        <ion-label>Estado:</ion-label>
+        <ion-select formControlName="estadoSeleccionado">
+          <ion-select-option value="2">California</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('paisSeleccionado')?.value === 'argentina'">
+        <ion-label>Estado:</ion-label>
+        <ion-select formControlName="estadoSeleccionado">
+          <ion-select-option value="1">Buenos Aires</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Número de Centro:</ion-label>
+        <ion-input type="number" maxlength="12" placeholder="Ingrese el número de centro" formControlName="centro"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha:</ion-label>
+        <input type="date" formControlName="fecha" />
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Detalle:</ion-label>
+        <ion-textarea rows="5" maxlength="300" placeholder="Ingresa los detalles" formControlName="detalle"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Desea ser anónimo</ion-label>
+        <ion-radio-group formControlName="anonimoSeleccionado" >
+          <ion-item>
+            <ion-label>No </ion-label>
+            <ion-radio value="no"></ion-radio>
+            <ion-label>Sí</ion-label>
+            <ion-radio value="si"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('anonimoSeleccionado')?.value === 'no'">
+        <ion-label>Nombre Completo:</ion-label>
+        <ion-input type="text" placeholder="Ingrese su nombre completo" formControlName="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('anonimoSeleccionado')?.value === 'no'">
+        <ion-label>Correo:</ion-label>
+        <ion-input type="email" placeholder="Ingrese su correo" formControlName="correo"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="formulario.get('anonimoSeleccionado')?.value === 'no'">
+        <ion-label>Teléfono:</ion-label>
+        <ion-input type="tel" placeholder="Ingrese su teléfono" formControlName="telefono"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Contraseña</ion-label>
+        <ion-input type="password" placeholder="Ingrese su contraseña" formControlName="contrasenia"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Confirmar Contraseña</ion-label>
+        <ion-input type="password" placeholder="Confirme su contraseña" ></ion-input>
+      </ion-item>
+    </ion-list>
+    <label >Su nuevo folio es:</label>
+    <label id="folio"></label>
+    <ion-button expand="full" type="submit" [disabled]="folioPresentado" (click)="guardarDatos()">Añadir</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "front-coppel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
